@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coolledux"
+version = "0.1.0"
+description = "Push GIFs and multi-slot playlists to CoolLEDUX LED panels (the CoolLED1248 app's panels) over Bluetooth"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_LICENSES.md"]
+requires-python = ">=3.10"
+authors = [{ name = "Eric Hobson" }]
+keywords = ["coolled", "coolledux", "coolled1248", "led", "matrix", "bluetooth", "ble", "gif"]
+dependencies = ["bleak>=1.0", "pillow>=10.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+coolledux = "coolledux.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
